@@ -5,6 +5,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatListModule } from '@angular/material/list';
 
 import { NgModule } from '@angular/core';
 
@@ -16,7 +19,10 @@ import { NgModule } from '@angular/core';
     MatFormFieldModule,
     MatToolbarModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule,
+    MatBottomSheetModule,
+    MatListModule
   ],
   exports: [
     MatButtonModule,
@@ -25,7 +31,10 @@ import { NgModule } from '@angular/core';
     MatFormFieldModule,
     MatToolbarModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule,
+    MatBottomSheetModule,
+    MatListModule
   ]
 })
 export class MyOwnCustomMaterialModule {}

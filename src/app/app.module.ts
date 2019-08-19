@@ -8,11 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyOwnCustomMaterialModule } from './materials';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ModalAddComponent } from './modal-add/modal-add.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginPageComponent, RegisterComponent, DashboardComponent],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MyOwnCustomMaterialModule],
+  declarations: [AppComponent, LoginPageComponent, RegisterComponent, DashboardComponent, ModalAddComponent],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, BrowserAnimationsModule, MyOwnCustomMaterialModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ModalAddComponent]
 })
 export class AppModule {}
