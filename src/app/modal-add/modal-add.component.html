@@ -1,17 +1,16 @@
-<form class="example-form">
-  <mat-form-field class="input">
-    <input matInput placeholder="Tema" value="" />
-  </mat-form-field>
-  <mat-form-field class="input">
-    <input matInput placeholder="Título" value="" />
-  </mat-form-field>
-  <mat-form-field class="input">
-    <input matInput placeholder="Descrição" value="" />
-  </mat-form-field>
-  <mat-form-field class="input">
-    <input matInput placeholder="Link da Imagem" value="" />
-  </mat-form-field>
-  <mat-form-field class="input">
-    <input matInput placeholder="URL" value="" />
-  </mat-form-field>
-</form>
+<mat-form-field class="input">
+  <input matInput [(ngModel)]="theme" id="sub_title" placeholder="Tema" />
+</mat-form-field>
+<mat-form-field class="input">
+  <input matInput [(ngModel)]="title" id="sub_title" placeholder="Título" />
+</mat-form-field>
+<mat-form-field class="input">
+  <input matInput [(ngModel)]="subTitle" id="sub_title" placeholder="Descrição" />
+</mat-form-field>
+<mat-form-field class="input">
+  <input matInput [(ngModel)]="imageUrl" placeholder="Link da Imagem" />
+</mat-form-field>
+<mat-form-field class="input">
+  <input matInput [(ngModel)]="url" placeholder="URL" />
+</mat-form-field>
+<button class="button-modal" mat-raised-button color="primary" (click)="registerNews()">Enviar</button>

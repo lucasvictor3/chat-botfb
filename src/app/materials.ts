@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatListModule } from '@angular/material/list';
+import { FormsModule } from '@angular/forms';
 
 import { NgModule } from '@angular/core';
 
@@ -22,7 +23,8 @@ import { NgModule } from '@angular/core';
     MatCardModule,
     MatTableModule,
     MatBottomSheetModule,
-    MatListModule
+    MatListModule,
+    FormsModule
   ],
   exports: [
     MatButtonModule,
@@ -34,7 +36,8 @@ import { NgModule } from '@angular/core';
     MatCardModule,
     MatTableModule,
     MatBottomSheetModule,
-    MatListModule
+    MatListModule,
+    FormsModule
   ]
 })
 export class MyOwnCustomMaterialModule {}

@@ -1,6 +1,3 @@
-<p>dashboard works!</p>
-
-<p>{{ dataSource }}</p>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
@@ -48,4 +45,4 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
 
-<button mat-raised-button (click)="openBottomSheet()">Adicionar Notícia</button>
+<button class="buttonAdd" color="primary" mat-raised-button (click)="openBottomSheet()">Adicionar Notícia</button>

@@ -2,8 +2,10 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { ModalAddComponent } from '../modal-add/modal-add.component';
+import { ChangeDetectorRef } from '@angular/core';
 
-const URI = 'https://secure-mountain-94218.herokuapp.com/auth';
+export const URI = 'https://secure-mountain-94218.herokuapp.com/auth';
+export let Id = 0;
 
 @Component({
   selector: 'app-dashboard',
@@ -12,23 +14,25 @@ const URI = 'https://secure-mountain-94218.herokuapp.com/auth';
 })
 @Injectable()
 export class DashboardComponent implements OnInit {
-  constructor(private http: HttpClient, public _bottomSheet: MatBottomSheet) {}
+  constructor(private http: HttpClient, public bottomSheet: MatBottomSheet, private cRef: ChangeDetectorRef) {}
   dataSource = [];
+
   displayedColumns: string[] = ['theme', 'title', 'sub_title', 'image_url', 'url', 'delete'];
   ngOnInit() {
     this.updateQuote();
+    Id = this.dataSource[this.dataSource.length - 1].newsId + 1;
   }
   openBottomSheet(): void {
-    this._bottomSheet.open(ModalAddComponent);
+    this.bottomSheet.open(ModalAddComponent);
   }
 
   private getData() {
     return this.http.get<Array<any>>(URI, { responseType: 'json' });
   }
 
-  async updateQuote() {
+  private updateQuote() {
     this.getData().subscribe((result: Array<any>) => {
-      this.dataSource = result;
+      this.dataSource = [...result];
       console.log(result);
     });
   }
@@ -45,16 +49,10 @@ export class DashboardComponent implements OnInit {
     return this.http.delete(`${URI}/delete-news/${row.newsId}`, options);
   }
 
-  async deleteNews(row) {
-    console.log(`${URI}/delete-news/${row.newsId}`);
-    Promise.resolve()
-      .then(() => {
-        this.deleteData(row).subscribe(s => {
-          console.log(s);
-        });
-      })
-      .then(() => {
-        this.updateQuote();
-      });
+  public deleteNews(row) {
+    this.deleteData(row).subscribe(s => {
+      console.log(s);
+    });
+    this.dataSource = this.dataSource.filter(item => item.newsId !== row.newsId);
   }
 }
